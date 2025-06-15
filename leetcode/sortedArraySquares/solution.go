@@ -1,7 +1,6 @@
 package sortedArraySquares
 
 import (
-	"fmt"
 	"sort"
 )
 
@@ -15,13 +14,9 @@ import (
 func SortedSquares(nums []int) []int {
 	var sortedSlice []int
 	for _, num := range nums {
-		fmt.Println("iterating on: ", num)
-		squaredNum := num * num
-		fmt.Println("appending num: ", squaredNum)
-		sortedSlice = append(sortedSlice, squaredNum)
+		num = num * num
+		sortedSlice = append(sortedSlice, num)
 	}
-	fmt.Println("unsortedNums: ", sortedSlice)
 	sort.Ints(sortedSlice)
-	fmt.Println("sortedNums: ", sortedSlice)
 	return sortedSlice
 }
