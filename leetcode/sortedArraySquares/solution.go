@@ -13,13 +13,15 @@ import (
 //After sorting, it becomes [0,1,9,16,100].
 
 func SortedSquares(nums []int) []int {
-	squaredNums := make([]int, len(nums))
-	for num := range nums {
-		newNum := num * num
-		squaredNums = append(squaredNums, newNum)
+	var sortedSlice []int
+	for _, num := range nums {
+		fmt.Println("iterating on: ", num)
+		squaredNum := num * num
+		fmt.Println("appending num: ", squaredNum)
+		sortedSlice = append(sortedSlice, squaredNum)
 	}
-	fmt.Println("squaredNums", squaredNums)
-	sort.Ints(squaredNums)
-	fmt.Println("sortedNums", squaredNums)
-	return squaredNums
+	fmt.Println("unsortedNums: ", sortedSlice)
+	sort.Ints(sortedSlice)
+	fmt.Println("sortedNums: ", sortedSlice)
+	return sortedSlice
 }
