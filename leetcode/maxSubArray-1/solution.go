@@ -12,10 +12,13 @@ package maxSubArray_1
 //Output: 5.00000
 
 func findMaxAverage(nums []int, k int) float64 {
+	//I initialized curr to be 0, it will hold the initial value of the first k sub array
 	curr := 0
+	//I iterate through the range of k in nums and add them together and store in curr
 	for index := range k {
 		curr += nums[index]
 	}
+	//placeholder so go doesn't yell at me
 	placeholder := 1.1
 	return placeholder
 }
