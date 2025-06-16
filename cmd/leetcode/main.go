@@ -1,12 +1,10 @@
 package main
 
-import (
-	"fmt"
-	"github.com/Andrew-Hinson/go-mastery/leetcode/sortedArraySquares"
-)
+import maxsubarray1 "github.com/Andrew-Hinson/go-mastery/leetcode/maxSubArray-1"
 
 func main() {
-	initialSlice := []int{-4, -1, 0, 3, 10}
-	result := sortedArraySquares.SortedSquares(initialSlice)
-	fmt.Println(result)
+	nums := []int{1, 12, -5, -6, 50, 3}
+	k := 4
+	ans := maxsubarray1.FindMaxAverage(nums, k)
+	println(ans)
 }

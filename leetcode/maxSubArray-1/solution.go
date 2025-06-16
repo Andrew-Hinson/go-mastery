@@ -1,5 +1,7 @@
 package maxSubArray_1
 
+import "math"
+
 //You are given an integer array nums consisting of n elements, and an integer k.
 //Find a contiguous subarray whose length is equal to k that has the maximum average value and return this value.
 //Any answer with a calculation error less than 10-5 will be accepted.
@@ -11,14 +13,26 @@ package maxSubArray_1
 //Input: nums = [5], k = 1
 //Output: 5.00000
 
-func findMaxAverage(nums []int, k int) float64 {
-	//I initialized curr to be 0, it will hold the initial value of the first k sub array
-	curr := 0
-	//I iterate through the range of k in nums and add them together and store in curr
+func FindMaxAverage(nums []int, k int) float64 {
+	//I initialized curr to be 0, it will hold the initial value of the first k sub array added together
+	var curr = 0
+	//I iterate through the range of k in nums and add them together and store in curr to get our starting point
 	for index := range k {
 		curr += nums[index]
 	}
-	//placeholder so go doesn't yell at me
-	placeholder := 1.1
-	return placeholder
+	println(curr)
+	//ans will be our starting highest average value
+	ans := float64(curr) / float64(k)
+	println("answer: ", ans)
+	for j := k; j <= len(nums)-1; j++ {
+		curr += nums[j] - nums[j-k]
+		println("current after adding: ", curr)
+		newCurrent := float64(curr) / float64(k)
+		println("NewCurrent: ", newCurrent)
+		ans = math.Max(ans, newCurrent)
+	}
+
+	println("answer is now: ", ans*1000000000)
+
+	return ans
 }
