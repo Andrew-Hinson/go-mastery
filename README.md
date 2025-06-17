@@ -10,7 +10,7 @@ I believe in my case it is not that I am adequate and doubt myself, but that my 
 * I am not Anti AI, I use AI extensively in my day to day, I seek to improve in my programming ability however, and I believe AI hampers this endeavor.
 
 | ID   | Category       | Date       | Result |
-| ---- | -------------- | ---------- | ------ |
-| 0977 | Array          | 2025-06-18 | Solved |
-| 0643 | Sliding Window | 2025-06-18 | Solved |
+| ---- | -------------- |------------| ------ |
+| 0977 | Array          | 2025-06-15 | Solved |
+| 0643 | Sliding Window | 2025-06-17 | Solved |
 | 1004 | Sliding Window | 2025-06-18 | Solved |
