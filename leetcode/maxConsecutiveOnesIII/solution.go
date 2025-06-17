@@ -23,12 +23,12 @@ func FindMaxConsecutiveOnes(ones []int, k int) int {
 			if ones[left] == 0 {
 				curr -= 1
 			}
-			//this was a mistake. This increments the first value of the slice, not move the pointer
-			ones[left] += 1
-			println("curr value: ", curr)
+			//fixed mistake.
+			left += 1
 		}
 		if ans > right-left+1 {
-			ans = 0
+			//this was a gotcha, needs to be assigned to itself here - not 0 like I had before.
+			ans = ans
 		} else {
 			ans = right - left + 1
 		}

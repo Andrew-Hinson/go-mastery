@@ -5,8 +5,8 @@ import (
 )
 
 func main() {
-	nums := []int{1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0}
-	k := 2
+	nums := []int{0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1}
+	k := 3
 	ans := maxConsecutiveOnesIII.FindMaxConsecutiveOnes(nums, k)
 	println(ans)
 }
