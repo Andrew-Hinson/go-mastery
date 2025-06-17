@@ -19,6 +19,13 @@ func TestMaxConsecutiveOnes(t *testing.T) {
 				k:    3},
 			want: 10,
 		},
+		{
+			name: "second test",
+			args: args{
+				nums: []int{1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0},
+				k:    2},
+			want: 6,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

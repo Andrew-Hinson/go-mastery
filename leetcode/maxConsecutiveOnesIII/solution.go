@@ -26,10 +26,8 @@ func FindMaxConsecutiveOnes(ones []int, k int) int {
 			//fixed mistake.
 			left += 1
 		}
-		if ans > right-left+1 {
-			//this was a gotcha, needs to be assigned to itself here - not 0 like I had before.
-			ans = ans
-		} else {
+		//another gotcha, this is cleaner. and skips the self assignment issue.
+		if ans < right-left+1 {
 			ans = right - left + 1
 		}
 	}
