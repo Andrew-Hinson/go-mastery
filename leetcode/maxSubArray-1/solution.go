@@ -39,3 +39,4 @@ func FindMaxAverage(nums []int, k int) float64 {
 
 //Final thoughts, I didn't know how to use math.Max, so while using, realized it required float64s,
 //I realized I needed to return a float64, so then just converted the items I would send into it into float64
+//I also now know that I don't have to calculate the average each step, I could just do the max sum and calculate the max average value once.
