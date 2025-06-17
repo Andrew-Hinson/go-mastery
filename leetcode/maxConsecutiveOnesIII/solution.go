@@ -8,8 +8,8 @@ package maxConsecutiveOnesIII
 //Explanation: [1,1,1,0,0,1,1,1,1,1,1]
 //Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
 
-// basically, what is the greatest number between right and left
-func findMaxConsecutiveOnes(ones []int, k int) int {
+// FindMaxConsecutiveOnes = basically, what is the greatest number between right and left
+func FindMaxConsecutiveOnes(ones []int, k int) int {
 	left := 0
 	ans := 0
 	//current is the number of 0s in the window
@@ -19,11 +19,13 @@ func findMaxConsecutiveOnes(ones []int, k int) int {
 			curr += 1
 		}
 		//while right has added more than 2 zeros to curr, bring left along with it till it gets to 0s and subtract from curr
-		for curr > 2 {
+		for curr > k {
 			if ones[left] == 0 {
 				curr -= 1
 			}
+			//this was a mistake. This increments the first value of the slice, not move the pointer
 			ones[left] += 1
+			println("curr value: ", curr)
 		}
 		if ans > right-left+1 {
 			ans = 0
