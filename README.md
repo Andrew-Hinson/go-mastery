@@ -6,7 +6,8 @@ This is mainly a Leetcode focussed repo. However if there are smaller projects t
 * The goal of this project is to work through problems locally, while developing a history I can track.
 
 | ID   | Category       | Date       | Result |
-| ---- | -------------- |------------| ------ |
+|------|----------------|------------| ------ |
 | 0977 | Array          | 2025-06-15 | Solved |
 | 0643 | Sliding Window | 2025-06-17 | Solved |
 | 1004 | Sliding Window | 2025-06-18 | Solved |
+| 1480 | Running Sum    | 2025-06-24 | Solved |
