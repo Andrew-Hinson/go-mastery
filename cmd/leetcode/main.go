@@ -1,12 +1,12 @@
 package main
 
 import (
-	"github.com/Andrew-Hinson/go-mastery/leetcode/maxConsecutiveOnesIII"
+	"github.com/Andrew-Hinson/go-mastery/leetcode/runningSum"
 )
 
 func main() {
-	nums := []int{0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1}
-	k := 3
-	ans := maxConsecutiveOnesIII.FindMaxConsecutiveOnes(nums, k)
+	nums := []int{1, 2, 3, 4}}
+
+	FindRunningSumOf1dArray(nums)
 	println(ans)
 }
