@@ -19,6 +19,11 @@ func Test_runningSumOf1dArray(t *testing.T) {
 			args: args{nums: []int{1, 2, 3, 4}},
 			want: []int{1, 3, 6, 10},
 		},
+		{
+			name: "second test",
+			args: args{nums: []int{1, 1, 1, 1, 1}},
+			want: []int{1, 2, 3, 4, 5},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
