@@ -15,8 +15,8 @@ package runningSum
 func FindRunningSumOf1dArray(nums []int) []int {
 	prefix := []int{nums[0]}
 	for i := 1; i < len(nums); i++ {
-		println("I = ", i)
-		prefix = append(prefix, nums[i]+len(prefix)-1)
+		//need the actual value of the last element of the prefix slice
+		prefix = append(prefix, nums[i]+prefix[len(prefix)-1])
 	}
-	return nums
+	return prefix
 }
