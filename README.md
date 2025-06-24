@@ -1,13 +1,9 @@
 # go-mastery
 
-### I suffer from impostor syndrome
-I believe in my case it is not that I am adequate and doubt myself, but that my impostor syndrome is telling me that I need to improve myself. This repo is public proof of me trying to do just that.
-
-### There will be no use of AI in this repo
-* I will not use AI for tips, auto complete, or generative code.
-* Unless the project I'm working on is to impliment some kind of AI or interface with AI.
-* The code itself will be stricly man vs machine.
-* I am not Anti AI, I use AI extensively in my day to day, I seek to improve in my programming ability however, and I believe AI hampers this endeavor.
+### Leetcode and other projects
+This is mainly a Leetcode focussed repo. However if there are smaller projects that can fit in it they may wind up in here.
+* Goland IDE with no autocomplete or ai assistent is used for this development.
+* The goal of this project is to work through problems locally, while developing a history I can track.
 
 | ID   | Category       | Date       | Result |
 | ---- | -------------- |------------| ------ |
