@@ -9,5 +9,7 @@ package stepByStepSum
 //Explanation: If you choose startValue = 4, in the third iteration your step by step sum is less than 1.
 
 func minStartValue(nums []int) int {
-
+	//psuedo thinking
+	//add startvalue to each int in nums.
+	//	return minimum positive value of startval, only when the sum is more than or equal to 1.
 }
