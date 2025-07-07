@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/Andrew-Hinson/go-mastery/leetcode/runningSum"
+	"github.com/Andrew-Hinson/go-mastery/leetcode/stepByStepSum"
 )
 
 func main() {
-	nums := []int{1, 2, 3, 4}
+	nums := []int{-3, 2, -3, 4, 2}
 
-	ans := runningSum.FindRunningSumOf1dArray(nums)
-	fmt.Println(ans)
+	ans := stepByStepSum.MinStepByStep(nums)
+	fmt.Println("Answer value: ", ans)
 }
