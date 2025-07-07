@@ -15,33 +15,44 @@ import "fmt"
 // which truncates to 2.
 // Input: nums = [7,4,3,9,1,8,5,2,6], k = 3
 // Output: [-1,-1,-1,5,4,4,-1,-1,-1]
-//[7 11 14 23 24 32 37 39 45]
+//        [7 11 14 23 24 32 37 39 45]
+
+//new approach - I need to calculate the subaraary only if the item is a valid number to calculate an average for.
+//no i don't I just need to subtract the subarray from the total.
 
 func GetAverages(nums []int, k int) []int {
 	//holds the subarray total
 	totals := []int{nums[0]}
 	averages := []int{}
+	sum := 0
+	divisor := k*2 + 1
 	for i := 1; i < len(nums); i++ {
 		//nums[i]+averages[len(averages)-1] = last element of averages
-		totals = append(totals, nums[i]+totals[len(totals)-1])
-		fmt.Println(totals)
+		totals = append(totals, (nums[i])+totals[len(totals)-1])
 	}
+	fmt.Println(totals)
+
 	//I think I iterate over totals and compute the averages with k radius
-	for j := 0; j < len(totals); j++ {
+	for j := 0; j < len(nums); j++ {
 		//if j is less than k, j equals -1.
 		//if the len(total) - k, j equals -1
-		fmt.Println(averages)
 
 		if j < k {
 			averages = append(averages, -1)
 			continue
 		}
+		fmt.Println(len(totals) - k)
 		if j >= k && j < len(totals)-k {
-			fmt.Println("J ", j)
-			fmt.Println("Total ", totals[j])
 			//	sum exists in totals, to get total to average, get last element +k - nums[k*2]
 			//The above thought is incorrect, its k * 2 + 1 because it's a radius which assumes equal sides centered on an int
-			averages = append(averages, totals[j+k]/(k*2+1))
+			//my mistake is not calculating the new subarray value, because this current iteration is taking in all of the numbers and not subtracting numbers that aren't included
+			//I think I need to calc each subararray separately
+
+			sum = totals[j+k] - totals[j-k]
+			fmt.Println("Total: ", totals[j])
+			fmt.Println("subtract: ", totals[j-k])
+			averages = append(averages, sum/divisor)
+
 			continue
 		}
 		averages = append(averages, -1)
