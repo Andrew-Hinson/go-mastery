@@ -20,27 +20,32 @@ func GetAverages(nums []int, k int) []int {
 	//holds the subarray total
 	totals := []int{nums[0]}
 	averages := []int{}
+	ans := 0
 	for i := 1; i < len(nums); i++ {
 		//nums[i]+averages[len(averages)-1] = last element of averages
 		totals = append(totals, nums[i]+totals[len(totals)-1])
+		fmt.Println(totals)
 	}
 	//I think I iterate over totals and compute the averages with k radius
 	for j := 0; j < len(totals); j++ {
 		//if j is less than k, j equals -1.
 		//if the len(total) - k, j equals -1
+		fmt.Println(averages)
 		if j < k {
 			averages = append(averages, -1)
 		}
 		if j >= k && j <= len(totals)-k {
 			//	sum exists in totals, to get total to average, get last element +k - nums[k*2]
-			averages = append(averages, totals[j+k]/k*2)
+			//The above thought is incorrect, its k * 2 + 1 because it's a radius which assumes equal sides centered on an int
+			ans = totals[j+k] / (k*2 + 1)
+			fmt.Println("current item to append to averages: ", ans)
+			averages = append(averages, totals[j+k]/(k*2+1))
 		}
 		if j > k {
 			averages = append(averages, -1)
 		}
 
 	}
-	fmt.Println(averages)
 
 	return averages
 }
