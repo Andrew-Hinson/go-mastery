@@ -26,6 +26,7 @@ func GetAverages(nums []int, k int) []int {
 	averages := []int{}
 	sum := 0
 	divisor := k*2 + 1
+
 	for i := 1; i < len(nums); i++ {
 		//nums[i]+averages[len(averages)-1] = last element of averages
 		totals = append(totals, (nums[i])+totals[len(totals)-1])
@@ -36,21 +37,22 @@ func GetAverages(nums []int, k int) []int {
 	for j := 0; j < len(nums); j++ {
 		//if j is less than k, j equals -1.
 		//if the len(total) - k, j equals -1
-
 		if j < k {
 			averages = append(averages, -1)
 			continue
 		}
-		fmt.Println(len(totals) - k)
 		if j >= k && j < len(totals)-k {
 			//	sum exists in totals, to get total to average, get last element +k - nums[k*2]
 			//The above thought is incorrect, its k * 2 + 1 because it's a radius which assumes equal sides centered on an int
 			//my mistake is not calculating the new subarray value, because this current iteration is taking in all of the numbers and not subtracting numbers that aren't included
 			//I think I need to calc each subararray separately
-
+			//I dont need to calc separately just handle the totals[0] situation
+			if totals[j-k] == totals[0] {
+				sum = totals[j+k]
+				averages = append(averages, sum/divisor)
+				continue
+			}
 			sum = totals[j+k] - totals[j-k]
-			fmt.Println("Total: ", totals[j])
-			fmt.Println("subtract: ", totals[j-k])
 			averages = append(averages, sum/divisor)
 
 			continue
