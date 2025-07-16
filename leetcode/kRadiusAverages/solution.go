@@ -1,7 +1,5 @@
 package kRadiusAverages
 
-import "fmt"
-
 // You are given a 0-indexed array nums of n integers, and an integer k.
 // The k-radius average for a subarray of nums centered at some index i
 // with the radius k is the average of all elements in nums between the indices i - k
@@ -20,45 +18,40 @@ import "fmt"
 //new approach - I need to calculate the subaraary only if the item is a valid number to calculate an average for.
 //no i don't I just need to subtract the subarray from the total.
 
+// [18334,25764,19780,92480,69842,73255,89893] given
+// [18334,25764,19780,92480,69842,73255,89893] expected
+// k = 0
+
 func GetAverages(nums []int, k int) []int {
-	//holds the subarray total
-	totals := []int{nums[0]}
-	averages := []int{}
-	sum := 0
-	divisor := k*2 + 1
-
-	for i := 1; i < len(nums); i++ {
-		//nums[i]+averages[len(averages)-1] = last element of averages
-		totals = append(totals, (nums[i])+totals[len(totals)-1])
+	if k == 0 {
+		return nums
 	}
-	fmt.Println(totals)
+	n := len(nums)
+	//holds the subarray total
+	//key to note here we are adding an element to handle several things
+	//if we only allocated n elements the loop for calculating the totals would break
+	//the range sum of totals[right+1] - totals[left] requires it for the last element
+	totals := make([]int, n+1)
+	//will return averages
+	averages := make([]int, n)
+	// divisor is radius * 2, then adding 1 for itself
+	divisor := k*2 + 1
+	//instead of calculating what will be -1, just put them all as -1 to start
+	for i := range averages {
+		averages[i] = -1
+	}
+	//I was calculating the prefix total incorrectly before
+	//I need to do i + 1 to get the total of the 0 index to i in the original array
+	for i := 0; i < len(nums); i++ {
+		totals[i+1] = totals[i] + nums[i]
+	}
 
-	//I think I iterate over totals and compute the averages with k radius
-	for j := 0; j < len(nums); j++ {
-		//if j is less than k, j equals -1.
-		//if the len(total) - k, j equals -1
-		if j < k {
-			averages = append(averages, -1)
-			continue
-		}
-		if j >= k && j < len(totals)-k {
-			//	sum exists in totals, to get total to average, get last element +k - nums[k*2]
-			//The above thought is incorrect, its k * 2 + 1 because it's a radius which assumes equal sides centered on an int
-			//my mistake is not calculating the new subarray value, because this current iteration is taking in all of the numbers and not subtracting numbers that aren't included
-			//I think I need to calc each subararray separately
-			//I dont need to calc separately just handle the totals[0] situation
-			if totals[j-k] == totals[0] {
-				sum = totals[j+k]
-				averages = append(averages, sum/divisor)
-				continue
-			}
-			sum = totals[j+k] - totals[j-k]
-			averages = append(averages, sum/divisor)
-
-			continue
-		}
-		averages = append(averages, -1)
-
+	for j := k; j < n-k; j++ {
+		left := j - k
+		right := j + k
+		sum := totals[right+1] - totals[left]
+		average := sum / divisor
+		averages[j] = average
 	}
 
 	return averages
