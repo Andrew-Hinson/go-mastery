@@ -10,4 +10,5 @@ func main() {
 	k := 3
 	ans := kRadiusAverages.GetAverages(nums, k)
 	fmt.Println("printing from main", ans)
-}
+
+)
