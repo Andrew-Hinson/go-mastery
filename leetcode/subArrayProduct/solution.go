@@ -2,6 +2,8 @@ package subArrayProduct
 
 import "fmt"
 
+// I had to look up the solution. Feel like an idiot after viewing the solution.
+
 //Given an array of integers nums and an integer k,
 //return the number of contiguous subarrays where the product of all the elements in the subarray is strictly less than k.
 
@@ -25,27 +27,31 @@ func NumSubarrayProductLessThanK(nums []int, k int) int {
 	// I need to iterate through nums,
 	// If the number is < k, add it to the product array
 	//multiply nums together, for each successful multiply that's less than 100, I increment a counter.
-	n := len(nums)
-	validNums := make([]int, n+1)
+	if k <= 1 {
+		return 0
+	}
+
+	product := 1
+	count := 0
 	left := 0
-	right := 0
-	counter := 0
 
-	for i := 0; i < len(nums); i++ {
-		if nums[i] < k {
-			counter++
-			validNums[i] = nums[i]
+	for right := 0; right < len(nums); right++ {
+		product *= nums[right]
+		for product >= k && left <= right {
+			product /= nums[left]
+			left++
 		}
-	}
-	for j := 0; j < len(validNums); j++ {
-		if validNums[left]*validNums[right] < k {
-			right++
-			counter++
-			fmt.Printf("{%v,%v}", validNums[left], validNums[right])
-			continue
-		}
-		left++
+
+		count += right - left + 1
+		fmt.Println(count)
 	}
 
-	return counter
+	return count
 }
+
+//		if right == left {
+//			if right == len(validNums)-1 {
+//				break
+//			}
+//			right++
+//		}
