@@ -13,7 +13,7 @@ package subArrayProduct
 //Input: nums = [1,2,3], k = 0
 //Output: 0
 
-func numSubarrayProductLessThanK(nums []int, k int) int {
+func NumSubarrayProductLessThanK(nums []int, k int) int {
 	myInt := 0
 	return myInt
 }

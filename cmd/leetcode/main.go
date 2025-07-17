@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/Andrew-Hinson/go-mastery/leetcode/kRadiusAverages"
+	"github.com/Andrew-Hinson/go-mastery/leetcode/subArrayProduct"
 )
 
 func main() {
-	nums := []int{7, 4, 3, 9, 1, 8, 5, 2, 6}
-	k := 3
-	ans := kRadiusAverages.GetAverages(nums, k)
+	nums := []int{10, 5, 2, 6}
+	k := 100
+	ans := subArrayProduct.NumSubarrayProductLessThanK(nums, k)
 	fmt.Println("printing from main", ans)
 }
