@@ -26,7 +26,7 @@ func NumSubarrayProductLessThanK(nums []int, k int) int {
 	// If the number is < k, add it to the product array
 	//multiply nums together, for each successful multiply that's less than 100, I increment a counter.
 	n := len(nums)
-	validNums := make([]int, n)
+	validNums := make([]int, n+1)
 	left := 0
 	right := 0
 	counter := 0
@@ -41,10 +41,11 @@ func NumSubarrayProductLessThanK(nums []int, k int) int {
 		if validNums[left]*validNums[right] < k {
 			right++
 			counter++
+			fmt.Printf("{%v,%v}", validNums[left], validNums[right])
+			continue
 		}
 		left++
 	}
-	fmt.Println(counter)
 
-	return k
+	return counter
 }

@@ -6,8 +6,8 @@ import (
 )
 
 func main() {
-	nums := []int{10, 5, 2, 6}
-	k := 100
+	nums := []int{1, 2, 3}
+	k := 0
 	ans := subArrayProduct.NumSubarrayProductLessThanK(nums, k)
 	fmt.Println("printing from main", ans)
 }
