@@ -11,9 +11,10 @@ import (
 
 // Modify this function to print the names of all files in which each duplicated line occurs.
 func Excercise4() {
-
+	fileNameToPrint := ""
 	counts := make(map[string]int)
 	for _, filename := range os.Args[1:] {
+		fileNameToPrint = filename
 		data, err := os.ReadFile(filename)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "dup3: %v\n", err)
@@ -25,7 +26,7 @@ func Excercise4() {
 	}
 	for line, n := range counts {
 		if n > 1 {
-			fmt.Printf("%d\t%s\n", n, line)
+			fmt.Printf("%d\t%s\n%s", n, line, fileNameToPrint)
 		}
 	}
 }
