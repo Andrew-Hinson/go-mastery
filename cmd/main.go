@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	books.Chapter1point3dup2()
+	books.Excercise4()
 }
